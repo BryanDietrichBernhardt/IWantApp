@@ -32,10 +32,12 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 Para rodar a API, siga estas etapas:
 
-Linux/macOS/Windows:
-1 - Verifique a string de conexão do banco em appsettings.Development.json
-2 - 
+Linux/macOS/Windows:</br>
+1 - Verifique a string de conexão do banco em appsettings.Development.json</br>
+2 - Execute as Migrations</br>
+3 - Build/run</br>
 ```
+dotnet ef database update
 dotnet build
 dotnet run
 ```
@@ -43,7 +45,5 @@ dotnet run
 ## ☕ Usando a API
 
 Como padrão do .NET, pode-se testar os endpoints com o próprio Swagger ou softwares externos (Postman/Insomnia)
-
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
 
 [⬆ Voltar ao topo](#nome-do-projeto)<br>
