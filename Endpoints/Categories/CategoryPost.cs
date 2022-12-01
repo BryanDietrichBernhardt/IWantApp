@@ -22,6 +22,6 @@ public class CategoryPost
         context.Categories.Add(category);
         context.SaveChanges();
 
-        return Results.Created($"/cagories/{category.Id}", category.Id);
+        return Results.Created($"/categories/{category.Id}", category.Id);
     }
 }

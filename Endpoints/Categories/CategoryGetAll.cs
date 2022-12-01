@@ -13,6 +13,7 @@ public class CategoryGetAll
         var categories = context.Categories.ToList();
         var response = categories.Select(c => new CategoryResponse
         {
+            Id= c.Id,
             Name = c.Name,
             Active = c.Active,
         });
