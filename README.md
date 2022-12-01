@@ -1,4 +1,5 @@
 # IWantAPI
+![dotnet](https://github.com/BryanDietrichBernhardt/IWantApp/blob/master/Assets/dot-net-banner.png)
 
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/BryanDietrichBernhardt/IWantApp?style=for-the-badge)
@@ -36,6 +37,7 @@ Linux/macOS/Windows:</br>
 1 - Verifique a string de conexão do banco em appsettings.Development.json</br>
 2 - Execute as Migrations</br>
 3 - Build/run</br>
+
 ```
 dotnet ef database update
 dotnet build
@@ -46,4 +48,4 @@ dotnet run
 
 Como padrão do .NET, pode-se testar os endpoints com o próprio Swagger ou softwares externos (Postman/Insomnia)
 
-[⬆ Voltar ao topo](#nome-do-projeto)<br>
+[⬆ Voltar ao topo](#IWantAPI)<br>
