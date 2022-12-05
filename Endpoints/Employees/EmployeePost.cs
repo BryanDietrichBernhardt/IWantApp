@@ -34,7 +34,7 @@ public class EmployeePost
 
         if (!claimResult.Succeeded)
         {
-            return Results.BadRequest(result.Errors.First());
+            return Results.ValidationProblem(result.Errors.ConvertToProblemDetails());
         }
 
 
