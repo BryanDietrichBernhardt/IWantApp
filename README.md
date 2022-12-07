@@ -19,7 +19,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Conexão com SQL Server
 - [x] Validações com Flunt
 - [x] Identity
-- [ ] Autenticação
+- [x] Autenticação
 - [ ] Logs
 
 ## 💻 Pré-requisitos
