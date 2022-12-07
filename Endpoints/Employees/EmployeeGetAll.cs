@@ -13,7 +13,7 @@ public class EmployeeGetAll
     public static Delegate Handle => Action;
 
     // pode acessar apenas se tiver EmployeeCode
-    [Authorize(Policy = "EmployeePolicy")]
+    [Authorize(Policy = "Employee001Policy")]
     public static IResult Action(int? page, int? rows, QueryAllUsersWithClaimName query)
     {
 
