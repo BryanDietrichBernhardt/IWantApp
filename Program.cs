@@ -31,8 +31,8 @@ builder.Services.AddAuthorization(options =>
         p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
 
     // only EmployeeCode 001 can use
-    options.AddPolicy("Employee001Policy", p =>
-        p.RequireAuthenticatedUser().RequireClaim("EmployeeCode", "001"));
+    //options.AddPolicy("Employee001Policy", p =>
+    //    p.RequireAuthenticatedUser().RequireClaim("EmployeeCode", "001"));
 });
 builder.Services.AddAuthentication(x =>
 {
