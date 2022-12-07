@@ -17,9 +17,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Estruturação inicial de endpoints
 - [x] Conexão com SQL Server
-- [X] Validações com Flunt
-- [X] Identity
-- [ ] Autenticação
+- [x] Validações com Flunt
+- [x] Identity
+- [x] Autenticação
 - [ ] Logs
 
 ## 💻 Pré-requisitos
