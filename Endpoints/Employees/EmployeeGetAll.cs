@@ -14,7 +14,7 @@ public class EmployeeGetAll
 
     // pode acessar apenas se tiver EmployeeCode
     [Authorize(Policy = "EmployeePolicy")]
-    public static IResult Action(int? page, int? rows, QueryAllUsersWithClaimName query)
+    public static async Task<IResult> Action(int? page, int? rows, QueryAllUsersWithClaimName query)
     {
 
         if (!page.HasValue || page == 0)
@@ -26,6 +26,6 @@ public class EmployeeGetAll
             return Results.BadRequest("Rows is required!");
         }
 
-        return Results.Ok(query.Execute(page.Value, rows.Value));
+        return Results.Ok(await query.Execute(page.Value, rows.Value));
     }
 }
