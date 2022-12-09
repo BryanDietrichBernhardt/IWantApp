@@ -6,6 +6,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+	<ItemGroup>
+		<Using Include="Flunt.Notifications" />
+		<Using Include="Microsoft.AspNetCore.Identity" />
+		<Using Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+		<Using Include="Microsoft.EntityFrameworkCore" />
+		<Using Include="Flunt.Notifications" />
+		<Using Include="Flunt.Notifications" />
+		<Using Include="System.Security.Claims" />
+		<Using Include="Microsoft.AspNetCore.Mvc" />
+		<Using Include="Microsoft.AspNetCore.Authorization" />
+
+		<Using Include="IWantApp.Domain.Products" />
+		<Using Include="IWantApp.Infra.Data"/>
+
+	</ItemGroup>
+	
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Flunt" Version="2.0.5" />
