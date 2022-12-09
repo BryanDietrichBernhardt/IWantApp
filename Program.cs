@@ -1,13 +1,6 @@
-using IWantApp.Endpoints.Categories;
-using IWantApp.Endpoints.Employees;
-using IWantApp.Endpoints.Security;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
