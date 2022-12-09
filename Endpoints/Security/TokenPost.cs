@@ -16,7 +16,7 @@ public class TokenPost
     [AllowAnonymous]
     public static IResult Action(LoginRequest loginRequest, IConfiguration configuration, UserManager<IdentityUser> userManager, ILogger<TokenPost> log)
     {
-        log.LogInformation(DateTime.Now.ToString() + " - Getting token");
+        log.LogInformation("Getting token");
         // log.LogWarning("Warning");
         // log.LogError("Error");
 

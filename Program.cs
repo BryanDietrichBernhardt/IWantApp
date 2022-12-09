@@ -2,13 +2,28 @@ using IWantApp.Endpoints.Categories;
 using IWantApp.Endpoints.Employees;
 using IWantApp.Endpoints.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.UseSerilog((context, configuration) =>
+{
+    configuration
+        .WriteTo.Console()
+        .WriteTo.MSSqlServer(
+            context.Configuration["ConnectionString:IWantDb"],
+            sinkOptions: new MSSqlServerSinkOptions()
+            {
+                AutoCreateSqlTable = true,
+                TableName = "LogAPI"
+            });
+});
+
 builder.Services.AddSqlServer<ApplicationDbContext>(builder.Configuration["ConnectionString:IWantDb"]);
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
@@ -27,7 +42,7 @@ builder.Services.AddAuthorization(options =>
         .RequireAuthenticatedUser()
         .Build();
     // add politicas para dividir admins e clientes
-    options.AddPolicy("EmployeePolicy", p => 
+    options.AddPolicy("EmployeePolicy", p =>
         p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
 
     // only EmployeeCode 001 can use
@@ -37,7 +52,7 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme= JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters()
@@ -45,7 +60,7 @@ builder.Services.AddAuthentication(x =>
         ValidateActor = true,
         ValidateAudience = true,
         ValidateLifetime = true,
-        ValidateIssuerSigningKey= true,
+        ValidateIssuerSigningKey = true,
         ClockSkew = TimeSpan.FromMinutes(5),
         ValidIssuer = builder.Configuration["JwtBearerTokenSettings:Issuer"],
         ValidAudience = builder.Configuration["JwtBearerTokenSettings:Audience"],
