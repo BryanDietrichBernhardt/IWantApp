@@ -3,6 +3,8 @@ using IWantApp.Endpoints.Employees;
 using IWantApp.Endpoints.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -83,5 +85,18 @@ app.MapMethods(CategoryPost.Template, CategoryPost.Methods, CategoryPost.Handle)
 app.MapMethods(CategoryPut.Template, CategoryPut.Methods, CategoryPut.Handle);
 app.MapMethods(EmployeeGetAll.Template, EmployeeGetAll.Methods, EmployeeGetAll.Handle);
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
+
+// chamar manipulador de exceções na rota /error
+app.UseExceptionHandler("/error");
+app.Map("/error", (HttpContext http) =>
+{
+    var error = http.Features.Get<IExceptionHandlerFeature>()?.Error;
+
+    if (error != null)
+        if (error is SqlException)
+            return Results.Problem(title: "Database Out", statusCode: 500);
+
+    return Results.Problem(title: "An error ocurred", statusCode: 500);
+});
 
 app.Run();
