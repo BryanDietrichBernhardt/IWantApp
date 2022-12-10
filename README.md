@@ -20,7 +20,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Validações com Flunt
 - [x] Identity
 - [x] Autenticação
-- [ ] Logs
+- [x] Logs
 
 ## 💻 Pré-requisitos
 
