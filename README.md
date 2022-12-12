@@ -21,6 +21,10 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Identity
 - [x] Autenticação
 - [x] Logs
+- [ ] Gerenciamento de Produto
+- [ ] Vitrine de Produto
+- [ ] Gerenciamento de Cliente
+- [ ] Pedido
 
 ## 💻 Pré-requisitos
 
