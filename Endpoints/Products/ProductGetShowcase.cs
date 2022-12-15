@@ -12,7 +12,7 @@ public class ProductGetShowcase
         if (row > 100)
             return Results.Problem(title: "Row with max 100", statusCode: 400);
 
-        var queryBase = context.Products
+        var queryBase = context.Products.AsNoTracking()
             .Include(p => p.Category)
             .Where(p => p.HasStock && p.Category.Active);
 
