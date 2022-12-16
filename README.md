@@ -35,12 +35,19 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 🚀 Rodando IWantAPI
 
-Para rodar a API, siga estas etapas:
-
-Linux/macOS/Windows:</br>
-1 - Verifique a string de conexão do banco em appsettings.Development.json</br>
-2 - Execute as Migrations</br>
-3 - Build/run</br>
+Agora a API está "Dockerizada"!<br>
+Para criar e rodar a imagem no ambiente de desenvolvimento:
+```
+docker build .
+docker images
+docker run -it --rm -p 8000:80 --name IWantAPI --env ASPNETCORE_ENVIRONMENT=Development <imagem>
+```
+<br>
+Para rodar a API em um PC local, siga estas etapas:<br>
+Linux/macOS/Windows:<br>
+1 - Verifique a string de conexão do banco em appsettings.Development.json (Atualize com o seu SQL Server)<br>
+2 - Execute as Migrations<br>
+3 - Build/Run<br>
 
 ```
 dotnet ef database update
