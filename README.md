@@ -36,6 +36,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 ## 🚀 Rodando IWantAPI
 
 Agora a API está "Dockerizada"!<br>
+Obs: Necessário configurar container para conexão com o banco de dados.<br>
 Para criar e rodar a imagem no ambiente de desenvolvimento:
 ```
 docker build .
