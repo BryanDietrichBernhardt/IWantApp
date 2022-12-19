@@ -30,8 +30,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
-* Frameworks `.NET 6` `Entity Framework`
+* Frameworks `.NET 6`
 * Banco de Dados `SQL Server 2019`
+* Docker `(Não obrigatório)`
 
 ## 🚀 Rodando IWantAPI
 
