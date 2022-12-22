@@ -1,3 +1,4 @@
+using IWantApp.Domain.Users;
 using IWantApp.Endpoints.Clients;
 using IWantApp.Endpoints.Products;
 using Microsoft.AspNetCore.Diagnostics;
@@ -67,6 +68,7 @@ builder.Services.AddAuthentication(x =>
 
 // Add services
 builder.Services.AddScoped<QueryAllUsersWithClaimName>();
+builder.Services.AddScoped<UserCreator>();
 
 
 builder.Services.AddEndpointsApiExplorer();
