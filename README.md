@@ -23,7 +23,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Logs
 - [x] Gerenciamento de Produto
 - [x] Vitrine de Produto
-- [ ] Gerenciamento de Cliente
+- [x] Gerenciamento de Cliente
 - [ ] Pedido
 
 ## 💻 Pré-requisitos
