@@ -14,8 +14,6 @@
 		<Using Include="Microsoft.AspNetCore.Identity" />
 		<Using Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
 		<Using Include="Microsoft.EntityFrameworkCore" />
-		<Using Include="Flunt.Notifications" />
-		<Using Include="Flunt.Notifications" />
 		<Using Include="System.Security.Claims" />
 		<Using Include="Microsoft.AspNetCore.Mvc" />
 		<Using Include="Microsoft.AspNetCore.Authorization" />

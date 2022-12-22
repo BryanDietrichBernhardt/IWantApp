@@ -1,3 +1,5 @@
+using IWantApp.Domain.Users;
+using IWantApp.Endpoints.Clients;
 using IWantApp.Endpoints.Products;
 using Microsoft.AspNetCore.Diagnostics;
 using Serilog;
@@ -66,6 +68,7 @@ builder.Services.AddAuthentication(x =>
 
 // Add services
 builder.Services.AddScoped<QueryAllUsersWithClaimName>();
+builder.Services.AddScoped<UserCreator>();
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -97,7 +100,8 @@ app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
 app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
 app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 app.MapMethods(ProductGetShowcase.Template, ProductGetShowcase.Methods, ProductGetShowcase.Handle);
-
+app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
+app.MapMethods(ClientGet.Template, ClientGet.Methods, ClientGet.Handle);
 
 
 // chamar manipulador de exceções na rota /error
@@ -108,13 +112,14 @@ app.Map("/error", (HttpContext http) =>
 
     if (error != null)
     {
+        if (error is AggregateException)
+            error = error.InnerException;
         if (error is SqlException)
             return Results.Problem(title: "Database Out", statusCode: 500);
         else if (error is BadHttpRequestException)
             return Results.Problem(title: "Error to convert data to other type. See all the information sent", statusCode: 500);
     }
-
-    return Results.Problem(title: "An error ocurred", statusCode: 500);
+    return Results.Problem(title: $"{(error != null ? error?.GetType() : "No errors!")}", statusCode: 500);
 });
 
 app.Run();
