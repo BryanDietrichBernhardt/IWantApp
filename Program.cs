@@ -102,6 +102,8 @@ app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 app.MapMethods(ProductGetShowcase.Template, ProductGetShowcase.Methods, ProductGetShowcase.Handle);
 app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 app.MapMethods(ClientGet.Template, ClientGet.Methods, ClientGet.Handle);
+app.MapMethods(OrderPost.Template, OrderPost.Methods, OrderPost.Handle);
+
 
 
 // chamar manipulador de exceções na rota /error
