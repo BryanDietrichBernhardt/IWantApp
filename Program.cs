@@ -40,6 +40,8 @@ builder.Services.AddAuthorization(options =>
     // add politicas para dividir admins e clientes
     options.AddPolicy("EmployeePolicy", p =>
         p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
+    options.AddPolicy("CpfPolicy", p =>
+        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
 
     // only EmployeeCode 001 can use
     //options.AddPolicy("Employee001Policy", p =>

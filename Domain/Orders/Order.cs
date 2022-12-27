@@ -34,8 +34,9 @@ public class Order : Entity
     private void Validate()
     {
         var contract = new Contract<Order>()
-            .IsNotNull(ClientId, "Client")
-            .IsNotNull(Products, "Products");
+            .IsNotNull(ClientId, "Client", "Client is required")
+            .IsTrue(Products != null && Products.Any(), "Products", "Unless one product is required")
+            .IsNotNullOrEmpty(DeliveryAddress, "DeliveryAddress", "Client address is required");
         AddNotifications(contract);
     }
 }
