@@ -11,6 +11,7 @@ public class Product : Entity
     public bool HasStock { get; set; }
     public bool Active { get; set; } = true;
     public decimal Price { get; private set; }
+    public ICollection<Order> Orders { get; set; }
 
     private Product() { }
 
