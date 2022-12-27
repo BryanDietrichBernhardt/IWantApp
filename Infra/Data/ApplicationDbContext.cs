@@ -8,6 +8,8 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Order> Orders { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -25,6 +27,20 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 
         builder.Entity<Category>()
             .Property(c => c.Name).IsRequired();
+
+        builder.Entity<Order>()
+            .Property(o => o.Id).IsRequired();
+        builder.Entity<Order>()
+            .Property(o => o.ClientId).IsRequired();
+        builder.Entity<Order>()
+            .Property(o => o.DeliveryAddress).IsRequired();
+
+        // relacionamento de muitos para muitos (Order tem muitos produtos e produtos são de muitas ordens)
+        builder.Entity<Order>()
+            .HasMany(o => o.Products)
+            .WithMany(p => p.Orders)
+            .UsingEntity(x => x.ToTable("OrderProducts"));
+
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configuration)

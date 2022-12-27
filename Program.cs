@@ -40,6 +40,8 @@ builder.Services.AddAuthorization(options =>
     // add politicas para dividir admins e clientes
     options.AddPolicy("EmployeePolicy", p =>
         p.RequireAuthenticatedUser().RequireClaim("EmployeeCode"));
+    options.AddPolicy("CpfPolicy", p =>
+        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
 
     // only EmployeeCode 001 can use
     //options.AddPolicy("Employee001Policy", p =>
@@ -102,6 +104,8 @@ app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 app.MapMethods(ProductGetShowcase.Template, ProductGetShowcase.Methods, ProductGetShowcase.Handle);
 app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 app.MapMethods(ClientGet.Template, ClientGet.Methods, ClientGet.Handle);
+app.MapMethods(OrderPost.Template, OrderPost.Methods, OrderPost.Handle);
+
 
 
 // chamar manipulador de exceções na rota /error
