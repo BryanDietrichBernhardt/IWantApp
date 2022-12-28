@@ -1,4 +1,4 @@
-﻿namespace IWantApp.Endpoints.Clients;
+﻿namespace IWantApp.Endpoints.Orders;
 
 public class OrderPost
 {

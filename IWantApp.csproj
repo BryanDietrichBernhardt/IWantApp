@@ -28,6 +28,7 @@
 		<Using Include="IWantApp.Endpoints.Employees" />
 		<Using Include="IWantApp.Endpoints.Security" />
 		<Using Include="IWantApp.Domain.Orders" />
+		<Using Include="IWantApp.Endpoints.Orders" />
 
 
 

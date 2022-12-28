@@ -1,3 +1,3 @@
-﻿namespace IWantApp.Endpoints.Clients;
+﻿namespace IWantApp.Endpoints.Orders;
 
 public record OrderRequest(List<Guid> ProductsIds, string DeliveryAddress);
