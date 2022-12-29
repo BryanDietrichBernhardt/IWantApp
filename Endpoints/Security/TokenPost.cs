@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+﻿using System.IdentityModel.Tokens.Jwt;
 
 namespace IWantApp.Endpoints.Security;
 
@@ -22,8 +17,10 @@ public class TokenPost
 
         var user = userManager.FindByEmailAsync(loginRequest.Email).Result;
 
-        if (!userManager.CheckPasswordAsync(user, loginRequest.Password).Result || user == null)
-            Results.BadRequest();
+        if (user == null)
+            return Results.BadRequest();
+        if (!userManager.CheckPasswordAsync(user, loginRequest.Password).Result)
+            return Results.BadRequest();
 
         var claims = userManager.GetClaimsAsync(user).Result;
         var subject = new ClaimsIdentity(new Claim[]
